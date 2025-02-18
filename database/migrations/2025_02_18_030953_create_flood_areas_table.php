@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('geojson');
             $table->string('risk_level');
+            $table->date('last_flood_date');
             $table->string('adm4_code')->nullable();
             $table->timestamps();
         });

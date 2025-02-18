@@ -18,7 +18,7 @@
                             class="hide-menu">Titik Rawan Banjir
                             </span></a>
                 </li>
-                <li class="sidebar-item"><a class="sidebar-link" href="{{route('flood-zones.index')}}"
+                <li class="sidebar-item"><a class="sidebar-link" href="{{route('flood-areas.index')}}"
                                             aria-expanded="false"><i data-feather="message-square"
                                                                      class="feather-icon"></i><span
                             class="hide-menu">Area Rawan Banjir</span></a></li>
