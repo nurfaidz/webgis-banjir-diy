@@ -16,7 +16,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::prefix('flood-zones')->group(function () {
+    Route::prefix('flood-zone')->group(function () {
         Route::get('/', [\App\Http\Controllers\FloodZoneController::class, 'index'])->name('flood-zones.index');
 //        Route::post('/', [\App\Http\Controllers\FloodZoneController::class, 'store'])->name('flood-zones.store');
 //        Route::get('/create', [\App\Http\Controllers\FloodZoneController::class, 'create'])->name('flood-zones.create');
@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
 //        Route::delete('/{floodZone}', [\App\Http\Controllers\FloodZoneController::class, 'destroy'])->name('flood-zones.destroy');
     });
 
-    Route::prefix('flood-areas')->group(function () {
+    Route::prefix('flood-area')->group(function () {
         Route::get('/', [\App\Http\Controllers\FloodAreaController::class, 'index'])->name('flood-areas.index');
 //        Route::get('/create', [\App\Http\Controllers\FloodAreaController::class, 'create'])->name('flood-areas.create');
 //        Route::post('/', [\App\Http\Controllers\FloodAreaController::class, 'store'])->name('flood-areas.store');
@@ -36,6 +36,10 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('weather')->group(function() {
         Route::get('/', [\App\Http\Controllers\WeatherController::class, 'index'])->name('weather.index');
+    });
+
+    Route::prefix('admin')->group(function() {
+        Route::get('/', [\App\Http\Controllers\AdminController::class, 'index'])->name('admin.index');
     });
 });
 
