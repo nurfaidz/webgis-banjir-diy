@@ -27,6 +27,48 @@
     <!-- Select2 -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet"/>
     @yield('page_styles')
+    <style>
+        .navbar {
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-nav .btn-outline-danger {
+            border: 2px solid #dc3545;
+            color: #dc3545;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            height: 40px;
+            justify-content: center;
+        }
+
+        .navbar-nav .btn-outline-danger:hover {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        .navbar-nav img {
+            border: 2px solid #f8f9fa;
+            padding: 3px;
+            transition: all 0.3s ease-in-out;
+            height: 40px;
+            object-fit: cover;
+        }
+
+        .navbar-nav img:hover {
+            border-color: #dc3545;
+        }
+    </style>
     @yield('meta_header')
 </head>
 
