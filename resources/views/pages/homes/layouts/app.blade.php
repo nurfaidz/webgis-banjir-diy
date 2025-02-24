@@ -34,31 +34,45 @@
 
 @include('pages.homes.layouts.footer')
 <script src="{{asset('assets/front/js/jquery-1.11.0.min.js')}}"></script>
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
 <script src="{{asset('assets/front/js/plugins.js')}}"></script>
 <script src="{{asset('assets/front/js/script.js')}}"></script>
+
+{{-- Leaflet --}}
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 @stack('scripts')
 <script>
-    var map = L.map('map').setView([-7.7956, 110.3695], 10);
+    var map = L.map('map').setView([-7.797068, 110.370529], 10);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    {{--        @foreach($floodZones as $zone)--}}
-    {{--        L.marker([{{ $zone->latitude }}, {{ $zone->longitude }}])--}}
-    {{--            .addTo(map)--}}
-    {{--            .bindPopup("<b>{{ $zone->name }}</b>");--}}
-    {{--        @endforeach--}}
-
-    {{--        @foreach($floodBoundaries as $boundary)--}}
-    {{--        var polygon = L.geoJSON({{ $boundary->polygon }});--}}
-    {{--        polygon.addTo(map);--}}
-    {{--        @endforeach--}}
+    // Load File GeoJSON
+    fetch('{{ asset('assets/geojson/di-yogyakarta.geojson') }}')
+        .then(response => response.json())
+        .then(data => {
+            L.geoJSON(data, {
+                style: function (feature) {
+                    return {
+                        color: "#FF0000",
+                        weight: 2,
+                        opacity: 0.7,
+                        fillColor: "#FF0000",
+                        fillOpacity: 0.2
+                    };
+                },
+                onEachFeature: function (feature, layer) {
+                    if (feature.properties && feature.properties.name) {
+                        layer.bindPopup(feature.properties.name);
+                    }
+                }
+            }).addTo(map);
+        })
+        .catch(error => console.error('Gagal memuat batas wilayah:', error));
 </script>
 </body>
 </html>
