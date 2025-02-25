@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url('assets/logo/logo-2.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/logo/logo.png') }}">
     <title>Webgis Rawan Banjir DIY</title>
     <!-- Custom CSS -->
     <link href="{{ url('assets/extra-libs/c3/c3.min.css') }}" rel="stylesheet">

@@ -45,17 +45,18 @@
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 @stack('scripts')
 <script>
+    feather.replace();
+
     var map = L.map('map').setView([-7.797068, 110.370529], 10);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    // Load File GeoJSON
     fetch('{{ asset('assets/geojson/di-yogyakarta.geojson') }}')
         .then(response => response.json())
         .then(data => {
-            L.geoJSON(data, {
+            let geojsonLayer = L.geoJSON(data, {
                 style: function (feature) {
                     return {
                         color: "#FF0000",
@@ -71,8 +72,18 @@
                     }
                 }
             }).addTo(map);
+
+            map.fitBounds(geojsonLayer.getBounds());
+
+            maxBounds = geojsonLayer.getBounds();
+            map.setMaxBounds(maxBounds);
+            map.on('drag', function () {
+                map.panInsideBounds(maxBounds, { animate: false });
+            });
+
         })
         .catch(error => console.error('Gagal memuat batas wilayah:', error));
+
 </script>
 </body>
 </html>
