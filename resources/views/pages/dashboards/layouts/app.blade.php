@@ -13,7 +13,6 @@
     <title>Webgis Rawan Banjir DIY</title>
     <!-- Custom CSS -->
     <link href="{{ url('assets/extra-libs/c3/c3.min.css') }}" rel="stylesheet">
-    <link href="{{ url('assets/libs/chartist/dist/chartist.min.css') }}" rel="stylesheet">
     <link href="{{ url('assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet"/>
     <!-- Datatable -->
     <link rel="stylesheet" href="{{ url('assets/extra-libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}">
@@ -123,11 +122,8 @@
 <!--This page JavaScript -->
 <script src="{{ url('assets/extra-libs/c3/d3.min.js') }}"></script>
 <script src="{{ url('assets/extra-libs/c3/c3.min.js') }}"></script>
-<script src="{{ url('assets/libs/chartist/dist/chartist.min.js') }}"></script>
-<script src="{{ url('assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js') }}"></script>
 <script src="{{ url('assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js') }}"></script>
 <script src="{{ url('assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js') }}"></script>
-<script src="{{ url('assets/js/pages/dashboards/dashboard1.min.js') }}"></script>
 <!-- Flatpickr -->
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr@latest/dist/plugins/monthSelect/index.js"></script>
@@ -135,6 +131,16 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 @yield('page_js')
 @yield('page_script')
+<script>
+    $(document).ready(function () {
+        const datatable = $('#dataTable');
+        if (datatable.length) {
+            const dt_table = datatable.DataTable({
+                responsive: true,
+            })
+        }
+    });
+</script>
 </body>
 
 </html>

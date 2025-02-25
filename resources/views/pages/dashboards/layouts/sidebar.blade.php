@@ -26,12 +26,6 @@
                         <span class="hide-menu">Area Rawan Banjir</span>
                     </a>
                 </li>
-{{--                <li class="sidebar-item">--}}
-{{--                    <a class="sidebar-link" href="{{route('weather.index')}}" aria-expanded="false">--}}
-{{--                        <i data-feather="cloud" class="feather-icon"></i>--}}
-{{--                        <span class="hide-menu">Cuaca</span>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="{{route('admin.index')}}" aria-expanded="false">
                         <i data-feather="users" class="feather-icon"></i>

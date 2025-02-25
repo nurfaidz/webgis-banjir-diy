@@ -47,7 +47,6 @@
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->email }}</td>
                                         <td>
-{{--                                            <button onclick="editForm('{{ route('siswa.update', $item->id) }}')"--}}
                                             <button class="btn btn-warning btn-sm" title="Edit"><i
                                                     class="nav-icon fas fa-edit"></i>
                                                 &nbsp; Edit
@@ -66,33 +65,5 @@
             </div>
         </div>
     </div>
-    @include('pages.dashboards.flood-zones.modal-form')
-@endsection
-@section('page_script')
-    <script>
-        $(document).ready(function () {
-            const datatable = $('#dataTable');
-            if (datatable.length) {
-                const dt_table = datatable.DataTable({
-                    responsive: true,
-                    processing: true,
-                    // ajax: {
-                    //     'url': '/list-kelas-siswa',
-                    // },
-                    columns: [
-                        {
-                            data: 'name'
-                        },
-                        {
-                            data: 'email'
-                        },
-                    ],
-                    columnDefs: [{
-                        targets: 1,
-                        className: 'text-center'
-                    },],
-                })
-            }
-        })
-    </script>
+    @include('pages.dashboards.admins.modal-form')
 @endsection
