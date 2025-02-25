@@ -22,6 +22,7 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center">
                             <div>
+                                <h2 class="text-dark mb-1 font-weight-medium">{{ $floodZones }}</h2>
                                 <h6 class="mb-0 w-100">
                             <span class="badge text-bg-danger font-12">
                                 Titik Rawan Banjir
@@ -30,7 +31,7 @@
                             </div>
                             <div class="ms-auto">
                         <span class="opacity-7 text-muted">
-                            <i data-feather="map-pin"></i>
+                            <i data-feather="map-pin" class="fs-3"></i>
                         </span>
                             </div>
                         </div>
@@ -43,6 +44,7 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center">
                             <div>
+                                <h2 class="text-dark mb-1 font-weight-medium">{{ $latestFloodArea }}</h2>
                                 <h6 class="mb-0 w-100">
                             <span class="badge text-bg-warning font-12">
                                 Laporan Rawan Banjir Terbaru
@@ -51,7 +53,7 @@
                             </div>
                             <div class="ms-auto">
                         <span class="opacity-7 text-muted">
-                            <i data-feather="alert-triangle"></i>
+                            <i data-feather="alert-triangle" class="fs-3"></i>
                         </span>
                             </div>
                         </div>

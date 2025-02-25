@@ -6,12 +6,12 @@ use Illuminate\Support\Facades\Route;
 // Guest
 Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->name('index');
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
 
 Route::get('/dashboard', function () {
-    return view('pages.dashboards.index');
+    $floodZones = \App\Models\FloodZone::count();
+    $latestFloodArea = \App\Models\FloodArea::where('created_at', '>=', now()->subDays(7))->count();
+
+    return view('pages.dashboards.index', compact('floodZones', 'latestFloodArea'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
